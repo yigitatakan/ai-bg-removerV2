@@ -12,7 +12,7 @@ declare global {
   }
 }
 
-const publisherId = import.meta.env.VITE_ADSENSE_PUBLISHER_ID;
+const publisherId = "ca-pub-6207135692337515";
 
 export const Advertisement = ({ adSlot, adFormat = 'auto', style }: AdProps) => {
   useEffect(() => {
