@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/google-publisher-tag": "^1.20241118.0",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "axios": "^1.7.8",
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",
+    "react-adsense": "^0.1.0",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.3.5"
   },

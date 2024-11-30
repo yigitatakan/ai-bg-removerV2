@@ -3,6 +3,7 @@ import axios from 'axios';
 import './index.css';
 import { DropZone } from './components/DropZone';
 import { ProcessedImage } from './components/ProcessedImage';
+import { Advertisement } from './components/Advertisement';
 import { Loader2 } from 'lucide-react';
 
 function App() {
@@ -59,6 +60,15 @@ function App() {
         </p>
       </div>
 
+      {/* Top Advertisement */}
+      <div className="w-full max-w-[728px] mx-auto">
+        <Advertisement
+          adSlot="1234567890"
+          adFormat="horizontal"
+          style={{ minHeight: '90px' }}
+        />
+      </div>
+
       {!originalImage && <DropZone onImageDrop={handleImageDrop} />}
 
       {isProcessing && (
@@ -75,11 +85,22 @@ function App() {
       )}
 
       {originalImage && processedImage && (
-        <ProcessedImage
-          original={originalImage}
-          processed={processedImage}
-          onDownload={handleDownload}
-        />
+        <>
+          {/* Advertisement before results */}
+          <div className="w-full max-w-[728px] mx-auto">
+            <Advertisement
+              adSlot="0987654321"
+              adFormat="rectangle"
+              style={{ minHeight: '250px' }}
+            />
+          </div>
+
+          <ProcessedImage
+            original={originalImage}
+            processed={processedImage}
+            onDownload={handleDownload}
+          />
+        </>
       )}
 
       {originalImage && (
@@ -94,6 +115,15 @@ function App() {
           Process another image
         </button>
       )}
+
+      {/* Bottom Advertisement */}
+      <div className="w-full max-w-[728px] mx-auto mt-8">
+        <Advertisement
+          adSlot="1122334455"
+          adFormat="horizontal"
+          style={{ minHeight: '90px' }}
+        />
+      </div>
     </div>
   );
 }
