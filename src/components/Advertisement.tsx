@@ -12,6 +12,8 @@ declare global {
   }
 }
 
+const publisherId = import.meta.env.VITE_ADSENSE_PUBLISHER_ID;
+
 export const Advertisement = ({ adSlot, adFormat = 'auto', style }: AdProps) => {
   useEffect(() => {
     try {
@@ -20,6 +22,11 @@ export const Advertisement = ({ adSlot, adFormat = 'auto', style }: AdProps) => 
       console.error('Error loading advertisement:', error);
     }
   }, []);
+
+  if (!publisherId) {
+    console.warn('AdSense Publisher ID is not configured');
+    return null;
+  }
 
   return (
     <div className="ad-container" style={style}>
@@ -30,7 +37,7 @@ export const Advertisement = ({ adSlot, adFormat = 'auto', style }: AdProps) => 
           textAlign: 'center',
           ...style,
         }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXX"
+        data-ad-client={publisherId}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive="true"

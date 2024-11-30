@@ -4,7 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RemovAI - AI Background Removal</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <script>
+      window.onload = function() {
+        const publisherId = '%VITE_ADSENSE_PUBLISHER_ID%';
+        if (publisherId && publisherId !== '%VITE_ADSENSE_PUBLISHER_ID%') {
+          const script = document.createElement('script');
+          script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${publisherId}`;
+          script.async = true;
+          script.crossOrigin = 'anonymous';
+          document.head.appendChild(script);
+        }
+      };
+    </script>
   </head>
   <body>
     <div id="root"></div>
